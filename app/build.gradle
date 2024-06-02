@@ -1,9 +1,14 @@
 plugins {
     id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
     id 'org.jetbrains.kotlin.android'
+    id 'com.google.dagger.hilt.android'
+
 }
 
 android {
+
     namespace 'com.example.workmanagerperiodicrequest_mvvm_android'
     compileSdk 34
 
@@ -13,7 +18,6 @@ android {
         targetSdk 34
         versionCode 1
         versionName "1.0"
-
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
             useSupportLibrary true
@@ -63,4 +67,20 @@ dependencies {
     androidTestImplementation 'androidx.compose.ui:ui-test-junit4'
     debugImplementation 'androidx.compose.ui:ui-tooling'
     debugImplementation 'androidx.compose.ui:ui-test-manifest'
+
+    //Hilt
+    implementation "com.google.dagger:hilt-android:2.51.1"
+    kapt "com.google.dagger:hilt-compiler:2.51.1"
+    implementation 'androidx.hilt:hilt-work:1.2.0'
+
+    //Coroutines
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3"
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.3"
+
+    //Paging
+    implementation "androidx.paging:paging-compose:3.2.1"
+
+    //WorkManager
+    implementation "androidx.work:work-runtime-ktx:2.9.0"
 }
